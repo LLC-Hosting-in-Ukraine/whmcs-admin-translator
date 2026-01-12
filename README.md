@@ -20,6 +20,11 @@ Set your DeepL API key in config/translator.php.
 
 ## Notes
 
+⚠️ Note about Ukrainian language:
+DeepL provides high-quality Ukrainian translations only with DeepL Pro.
+With Free API, Ukrainian output may fallback to Russian.
+
+
 Tool writes only to admin/lang/overrides
 
 Base language file must exist for WHMCS to load overrides
