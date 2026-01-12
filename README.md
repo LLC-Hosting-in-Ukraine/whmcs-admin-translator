@@ -1,6 +1,7 @@
 # WHMCS Admin Translator
 
 CLI tool for translating WHMCS admin language files using DeepL.
+This tool was created to safely localize WHMCS admin area without modifying core files, making it update-safe and production-ready.
 
 ## Features
 - Admin area translation
