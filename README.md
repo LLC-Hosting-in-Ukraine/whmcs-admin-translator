@@ -1,88 +1,41 @@
-# Інструмент перекладу для адміністратора WHMCS
+# WHMCS Admin Translator
 
-Цей інструмент перекладає **лише файли мови адміністратора** WHMCS за допомогою API DeepL.
+CLI tool for translating WHMCS admin language files using DeepL.
 
-## Вимоги
-- WHMCS
-- Обліковий запис DeepL та ключ API
-
-## Налаштування
-
-1. Зареєструйтесь на https://www.deepl.com/pro
-2. Отримайте свій ключ API
-3. Скопіюйте config.example.php у config.php
-4. Вставте свій ключ API DeepL у config.php
-
-## Як це працює
-
-- Інструмент обробляє **вихідні файли мови адміністратора**
-- Перекладені рядки записуються в:
-
-./admin/lang/overrides/your_language
-
-- після ручної перевірки перейменувати файл your_language в your_language.php
-- файл your_language.php має бути розміщений в ./admin/lang/overrides/, оскільки після оновлення базовий файл в ./admin/lang/ може бути перезаписаний.
-
-⚠️ Для WHMCS потрібен базовий мовний файл.
-Ви ПОВИННІ створити:
-
-./admin/lang/your_language.php
-
-Навіть якщо він містить лише:
-
-"<?php return [];"
-
-Інакше перевизначення не завантажуватимуться, WHMCS не підтягне мову.g
-
-## Обмеження
-
-- Тільки область адміністратора
-- Без перекладів на стороні клієнта
-- Не змінює основні файли WHMCS
-
-
-##################################################################################
-
-# WHMCS Admin Translation Tool
-
-This tool translates **only WHMCS admin language files** using the DeepL API.
+## Features
+- Admin area translation
+- Safe overrides (no core file changes)
+- Supports DeepL Free / Pro
+- CLI options: --only, --limit, --dry-run
 
 ## Requirements
-- WHMCS
-- DeepL account and API key
+- PHP 8.1+
+- WHMCS 8.x
+- DeepL API key
 
-## Settings
+## Installation
+```bash
+git clone https://github.com/LLC-Hosting-in-Ukraine/whmcs-admin-translator.git
 
-1. Sign up at https://www.deepl.com/pro
-2. Get your API key
-3. Copy config.example.php to config.php
-4. Paste your DeepL API key to config.php
+## Configuration
+cp config/translator.example.php config/translator.php
 
-## How it works
+Set your DeepL API key in config/translator.php.
 
-- The tool processes **admin language source files**
-- Translated lines are written to:
+## Usage
+php bin/translate.php admin uk
+php bin/translate.php admin uk --only=wizard
+php bin/translate.php admin uk --limit=50
+php bin/translate.php admin uk --dry-run
 
-./admin/lang/overrides/your_language
+## Notes
 
-- after manual verification rename your_language file to your_language.php
-- your_language.php file must be placed in ./admin/lang/overrides/, as the base file in ./admin/lang/ may be overwritten after an update.
+Tool writes only to admin/lang/overrides
 
-⚠️ WHMCS requires a base language file.
-You MUST create:
+Base language file must exist for WHMCS to load overrides
 
-./admin/lang/your_language.php
+Automatic translations should be reviewed manually
 
-Even if it only contains:
+## License
 
-"<?php return [];"
-
-Otherwise the overrides will not load, WHMCS will not pick up the language.
-
-## Limitations
-
-- Admin area only
-- No client-side translations
-- Does not modify WHMCS core files
-
-Thanks_)
+MIT
