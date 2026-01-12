@@ -1,0 +1,7 @@
+/config/translator.php
+/var/
+/vendor/
+*.log
+.DS_Store
+.idea/
+.vscode/

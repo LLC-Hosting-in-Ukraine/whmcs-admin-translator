@@ -1,0 +1,16 @@
+<?php
+
+spl_autoload_register(function (string $class) {
+    $prefix = 'HostingInUA\\WhmcsTranslator\\';
+
+    if (!str_starts_with($class, $prefix)) {
+        return;
+    }
+
+    $relative = substr($class, strlen($prefix));
+    $file = __DIR__ . '/' . str_replace('\\', '/', $relative) . '.php';
+
+    if (file_exists($file)) {
+        require $file;
+    }
+});
