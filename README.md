@@ -13,10 +13,6 @@ CLI tool for translating WHMCS admin language files using DeepL.
 - WHMCS 8.x
 - DeepL API key
 
-## Installation
-```bash
-git clone https://github.com/LLC-Hosting-in-Ukraine/whmcs-admin-translator.git
-
 ## Configuration
 cp config/translator.example.php config/translator.php
 
@@ -37,5 +33,9 @@ Base language file must exist for WHMCS to load overrides
 Automatic translations should be reviewed manually
 
 ## License
-
 MIT
+
+## Installation
+```bash
+git clone https://github.com/LLC-Hosting-in-Ukraine/whmcs-admin-translator.git
+
